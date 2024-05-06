@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Konnakol Time Signature Player</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        color: #333;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+    }
+    h1 {
+        color: #0056b3;
+        margin-bottom: 20px;
+    }
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    input, select, button {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: calc(100% - 22px);
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #0084ff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    button:disabled {
+        background-color: #ccc;
+        color: #666;
+        cursor: not-allowed;
+    }
+    #output {
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        word-wrap: break-word;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #rhythmOutput {
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        word-wrap: break-word;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+</head>
+<body>
+<h1>Understanding Konnakol Time Signatures</h1>
+<div class="container">
+    <input type="text" id="userTalam" placeholder="Enter 8 syllables separated by spaces">
+    <button id="proceedButton">Proceed</button>
+
+    <select id="timeSignature">
+        <option value="4/4">4/4</option>
+        <option value="8/8">8/8</option>
+        <option value="16/16">16/16</option>
+        <option value="4/8">4/8</option>
+        <option value="8/4">8/4</option>
+        <option value="3/4">3/4</option>
+        <option value="9/8">9/8</option>
+    </select>
+    <select id="speed">
+        <option value="1">Speed 1</option>
+        <option value="2">Speed 2</option>
+        <option value="3">Speed 3</option>
+        <option value="1/2">Speed 1/2</option>
+    </select>
+    <button id="playButton" disabled>Play Talam</button>
+    <button id="stopButton" disabled>Stop</button>
+    <button id="restartButton" disabled>Restart</button>
+    <div id="output"></div>
+    <div>
+        <h2>Rhythm Variations Player</h2>
+        <input type="text" id="rhythmInput" placeholder="Enter 8 syllables separated by spaces">
+<button id="proceedRhythmButton">Proceed</button>
+<select id="rhythmPattern">
+            <option value="1+1+2+4">1+1+2+4 (Quarter, Quarter, 2 Eighths, 4 Sixteenths)</option>
+            <option value="1+2+1+4">1+2+1+4 (Quarter, 2 Eighths, Quarter, 4 Sixteenths)</option>
+            <option value="4+2+1+1">4+2+1+1 (4 Sixteenths, 2 Eighths, Quarter, Quarter)</option>
+            <option value="2+2+2+2">2+2+2+2 (2 Eighths, 2 Eighths, 2 Eighths, 2 Eighths)</option>
+            <option value="2+1+1+4">2+1+1+4 (2 Eighths, Quarter, Quarter, 4 Sixteenths)</option>
+        </select>
+        <button id="playRhythmButton">Play Rhythm</button>
+        <button id="stopRhythmButton">Stop</button>
+        <button id="restartRhythmButton">Restart</button>
+        <div id="rhythmOutput"></div>
+    </div>    
+</div>
+<script src="app.js"></script>
+</body>
+</html>
